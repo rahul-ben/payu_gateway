@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"  media="all"/>
+    <link href="../bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <title>MDU</title>
+    <style type="text/css">
+        body {
+            overflow: hidden;
+        }
+
+        .spinner div {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: -20px;
+            top: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            animation: move 4s infinite cubic-bezier(.2, .64, .81, .23);
+        }
+
+        .spinner div:nth-child(2) {
+            animation-delay: 150ms;
+        }
+
+        .spinner div:nth-child(3) {
+            animation-delay: 300ms;
+        }
+
+        .spinner div:nth-child(4) {
+            animation-delay: 450ms;
+        }
+
+        @keyframes move {
+            0% {
+                left: 0%;
+            }
+            75% {
+                left: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--<form  id="paymentForm" method="post" action="<%= data.action %>" name="paymentForm">-->
+
+    <!--<div id="frmError">-->
+        <!--<span style="color:red">Please fill all mandatory fields.</span>-->
+        <!--<br/>-->
+        <!--<br/>-->
+    <!--</div>-->
+
+
+    <!--<input  id="key" name="key" value="<%= data.key %>"/>-->
+    <!--<input  id="hash" name="hash" value="<%= data.hash %>"/>-->
+    <!--<input  id="txnid" name="txnid" value="<%= data.txnid %>"/>-->
+    <!--<table>-->
+        <!--<tr>-->
+            <!--<td><b>Mandatory Parameters</b></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Amount:</td>-->
+            <!--<td>-->
+                <!--<input ID="amount" name="amount" type="text" value="<%= data.amount %>"/></td>-->
+            <!--<td>First Name:</td>-->
+            <!--<td>-->
+                <!--<input ID="firstname" name="firstname" type="text" value="<%= data.firstname %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Email:</td>-->
+            <!--<td>-->
+                <!--<input ID="email" name="email" type="text" value="<%= data.email %>"/></td>-->
+            <!--<td>Phone:</td>-->
+            <!--<td>-->
+                <!--<input ID="phone" name="phone" type="text" value="<%= data.phone %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Product Info:</td>-->
+            <!--<td colspan="3">-->
+                <!--<input ID="productinfo" name="productinfo" type="text" value="<%= data.productinfo %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Success URI:</td>-->
+            <!--<td colspan="3">-->
+                <!--<input ID="surl" name="surl" type="text" value="<%= data.surl %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Failure URI:</td>-->
+            <!--<td colspan="3">-->
+                <!--<input ID="furl" name="furl" type="text" value="<%= data.furl %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>udf1:</td>-->
+            <!--<td colspan="3">-->
+                <!--<input ID="udf1" name="udf1" type="text" value="<%= data.udf1 %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>udf2:</td>-->
+            <!--<td colspan="3">-->
+                <!--<input ID="udf2" name="udf2" type="text" value="<%= data.udf2 %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>udf3:</td>-->
+            <!--<td colspan="3">-->
+                <!--<input ID="udf3" name="udf3" type="text" value="<%= data.udf3 %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>udf4:</td>-->
+            <!--<td colspan="3">-->
+                <!--<input ID="udf4" name="udf4" type="text" value="<%= data.udf4 %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>udf5:</td>-->
+            <!--<td colspan="3">-->
+                <!--<input ID="udf5" name="udf5" type="text" value="<%= data.udf5 %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Service Provider:</td>-->
+            <!--<td>-->
+                <!--<input type="text" ID="service_provider" name="service_provider" Text="payu_paisa"-->
+                       <!--value="<%= data.service_provider %>"/></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+
+            <!--<td colspan="4"></td>-->
+
+        <!--</tr>-->
+    <!--</table>-->
+    <!--<br/>-->
+    <!--<button type="submit" Width="100px">Submit</button>-->
+<!--</form>-->
+
+<form id="paymentForm" action="<%= data.action %>" method='post' name="paymentForm">
+
+    <input type="hidden" name="firstname" value="<%= data.firstname %>" />
+
+    <input type="hidden" name="lastname" value="" />
+
+    <input type="hidden" name="surl" value="<%= data.surl %>" />
+
+    <input type="hidden" name="phone" value="" />
+
+    <input type="hidden" name="key" value="<%= data.key %>" />
+
+    <input type="hidden" name="hash" value="<%= data.hash %>"/>
+
+    <input type="hidden" name="curl" value="http://www.google.com" />
+
+    <input type="hidden" name="furl" value="<%= data.furl %>" />
+
+    <input type="hidden" name="txnid" value="<%= data.txnid %>" />
+
+    <input type="hidden" name="productinfo" value="E_payment" />
+
+    <input type="hidden" name="amount" value="<%= data.amount %>" />
+
+    <input type="hidden" name="email" value="<%= data.email %>"/>
+
+    <input type="hidden" name="udf1" value="<%= data.studentId %>" />
+
+    <input type= "submit" style="display: none" value="submit">
+
+
+</form>
+<div class="col-sm-12" style="padding-top: 10%">
+    <div clas="col-sm-12">
+        <h2 class="text-center">Proceed to Payment gateway</h2>
+    </div>
+</div>
+<div class="col-sm-12">
+    <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<script type="text/javascript">
+      window.onload = function(){
+         document.forms['paymentForm'].submit()
+       }
+</script>
+</body>
+</html>

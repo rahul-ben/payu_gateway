@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>MDU</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"  media="all"/>
+    <link href="../bower_components/animate.css/animate.css" rel="stylesheet"  media="all"/>
+    <link href="../bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="../css/styles.css" rel="stylesheet"/>
+    <style type="text/css">
+        body {
+            background: #a4d5ff url(../images/layoutSliced.png) top repeat-x;
+            text-align: center;
+            font: 13px arial, sans-serif;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="main">
+        <div id="head"> <span class="headLeftCor floatL"></span> <span class="headRightCor floatR"></span>
+            <div class="logoArea"><a href="http://www.mdurohtak.ac.in"><img src="../images/logo.jpg" alt="logo of the university" class="marR10 floatL"></a>
+                <div class="padT10">MAHARSHI DAYANAND UNIVERSITY, ROHTAK<br>
+                    <span class="font12 fontN">(A State University established under Haryana Act No. XXV of 1975)</span> <br><span class="font12 fontN"><strong>'A' Grade University Accredited by NAAC.</strong></span>
+
+                </div>
+            </div>
+        </div>
+        <div id="intro">
+            <div class="topNav">
+                <div class="topNavRight">
+                    <div class="topNavCont">
+
+                    </div>
+                </div>
+            </div>
+            <div class="SlideShow">
+                <h1>Payment Successful</h1>
+                <span class="font12 fontN"><strong>Your payment has been processed! Details of the transaction are included below:</strong></span>
+                <div>
+                    <span class="pf-total-paid">Amount Paid &nbsp;Total: Rs. <%= data.amount%></span>
+                </div>
+
+                <p class="text-center">StudentId:&nbsp;<%= data.udf1 %></p>
+
+                <p class="text-center">Challan Code:&nbsp;<%= data.txnid%></p><br>
+                <span class="font12 fontN" style="color:red;"><strong>Payment is successfully done but not close in SAP</strong></span>
+            </div>
+            <div class="botNav">
+                <div class="topNavRight2" style="overflow:hidden">
+                    <div class="topNavCont2" id="mygallery">
+                        <div class="footRight"> <a href="http://www.mdurohtak.ac.in">Back to Home</a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

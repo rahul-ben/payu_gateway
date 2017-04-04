@@ -1,0 +1,25 @@
+{
+  "name": "mdu",
+  "authors": [
+    "Rahul Beniwal <rahul.beniwal>"
+  ],
+  "description": "mdu",
+  "main": "mdu",
+  "keywords": [
+    "mdu"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#^4.6.3",
+    "angular": "^1.5.7"
+  }
+}

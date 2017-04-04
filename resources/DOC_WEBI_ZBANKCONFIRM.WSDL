@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions targetNamespace="urn:sap-com:document:sap:rfc:functions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:sap-com:document:sap:rfc:functions" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+ <wsdl:documentation>
+  <sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl"/>
+ </wsdl:documentation>
+ <wsp:UsingPolicy wsdl:required="true"/>
+ <wsp:Policy wsu:Id="IF_IF_zbankconfirm">
+  <sapsession:Session xmlns:sapsession="http://www.sap.com/webas/630/soap/features/session/">
+   <sapsession:enableSession>false</sapsession:enableSession>
+  </sapsession:Session>
+ </wsp:Policy>
+ <wsp:Policy wsu:Id="OP_IF_OP_Z_BANKCONFIRM">
+  <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">false</sapblock:enableBlocking>
+  <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">true</sapcomhnd:enableCommit>
+  <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">yes</saptrhnw05:required>
+  <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">true</saprmnw05:enableWSRM>
+ </wsp:Policy>
+ <wsdl:types>
+  <xsd:schema attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+   <xsd:simpleType name="char10">
+    <xsd:restriction base="xsd:string">
+     <xsd:maxLength value="10"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="char30">
+    <xsd:restriction base="xsd:string">
+     <xsd:maxLength value="30"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="curr13.2">
+    <xsd:restriction base="xsd:decimal">
+     <xsd:totalDigits value="13"/>
+     <xsd:fractionDigits value="2"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="numeric12">
+    <xsd:restriction base="xsd:string">
+     <xsd:maxLength value="12"/>
+     <xsd:pattern value="\d*"/>
+    </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:element name="Z_BANKCONFIRM">
+    <xsd:complexType>
+     <xsd:sequence>
+      <xsd:element name="APPLICANTNUMBER" type="tns:numeric12"/>
+      <xsd:element name="CHALLAN_NUMBER" type="tns:char10"/>
+      <xsd:element name="TOTAL_FEES" type="tns:curr13.2"/>
+      <xsd:element name="TRANSACTION_ID" type="tns:char30"/>
+     </xsd:sequence>
+    </xsd:complexType>
+   </xsd:element>
+  </xsd:schema>
+ </wsdl:types>
+ <wsdl:message name="Z_BANKCONFIRM">
+  <wsdl:part name="parameters" element="tns:Z_BANKCONFIRM"/>
+ </wsdl:message>
+ <wsdl:portType name="zbankconfirm">
+  <wsp:Policy>
+   <wsp:PolicyReference URI="#IF_IF_zbankconfirm"/>
+  </wsp:Policy>
+  <wsdl:operation name="Z_BANKCONFIRM">
+   <wsp:Policy>
+    <wsp:PolicyReference URI="#OP_IF_OP_Z_BANKCONFIRM"/>
+   </wsp:Policy>
+   <wsdl:input message="tns:Z_BANKCONFIRM"/>
+  </wsdl:operation>
+ </wsdl:portType>
+</wsdl:definitions>
